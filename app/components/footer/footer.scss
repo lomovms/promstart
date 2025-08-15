@@ -1,0 +1,75 @@
+.footer {
+  background: var(--bckground);
+  padding: 68px 0 70px;
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 24px 48px;
+  align-items: start;
+}
+
+.footer__logo img { display:block; height:140px; width:auto; }
+
+.footer__nav {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(160px,1fr));
+  gap: 12px 48px;
+}
+.footer__contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.footer__list { margin:0; padding:0; list-style:none; display:flex; flex-direction: column; gap:27px; }
+
+.footer__link {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 20px;
+  color: var(--accent--dark);
+  text-decoration: none;
+  transition: color .15s;
+}
+.footer__link:hover {color: var(--accent-green); }
+
+.footer__email {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--accent-green);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* ===== Mobile: как на макете ===== */
+@media (max-width: 991.98px) {
+  .footer { padding: 20px 0; }
+  .footer__logo img { height:58px; }
+
+  .footer__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 20px;
+    grid-template-areas:
+      "logo   nav"
+      "contacts nav";
+  }
+  .footer__logo { grid-area: logo; }
+
+  /* чтобы пункты меню стали одной колонкой, выровненной вправо */
+  .footer__nav { 
+    grid-area: nav;
+    display: flex;
+    flex-direction: column;
+    grid-auto-rows: auto;
+    justify-items: end;
+    gap: 0;
+    text-align: right;
+  }
+  .footer__nav .footer__list { display: contents; }  /* «сплющить» списки */
+  .footer__link { font-size: 18px; }
+
+  .footer__contacts { grid-area: contacts; gap: 24px;}
+  .footer__email { font-size: 18px; }
+}

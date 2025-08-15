@@ -1,0 +1,28 @@
+mixin footer(data)
+	//- модификатор
+	+modif('footer', data.mod)
+
+	//- префикс
+	+prefix('footer', data.prefix)
+
+	//- атрибуты
+	- attr = data.attr || ''
+
+	div(class=`footer${pr}${mod}`)&attributes(attr)
+		.container
+			.footer__grid
+				a.footer__logo(href="/", aria-label="Промстарт")
+					img(src="/assets/images/required/logo-footer.svg" alt="Промстарт")
+
+				nav.footer__nav(aria-label="Навигация")
+					ul.footer__list
+						li: a.footer__link(href="#home") Главная
+						li: a.footer__link(href="#service") Сервис
+						li: a.footer__link(href="#effects") Эффекты
+					ul.footer__list
+						li: a.footer__link(href="#stages") Этапы работы
+						li: a.footer__link(href="#platform") Платформа
+
+				.footer__contacts
+					a.footer__link(href="#contacts") Контакты
+					a.footer__email(href="mailto:info@promstart.app") info@promstart.app
